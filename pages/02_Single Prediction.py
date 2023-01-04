@@ -4,9 +4,8 @@ import numpy as np
 
 st.set_page_config(page_title="BoozeBreak", layout='wide')
 st.title("Single Prediction")
-#model_path = "C:/Users/user/Desktop/UM Tutorial/Year 3/Tutorial (Semester 1)/DS Project/Data/RReliefF_rf.sav"
 
-model_path = "C:/Users/user/Desktop/UM Tutorial/Year 3/Tutorial (Semester 1)/DS Project/Data/RF_RReliefF.sav"
+model_path = "RF_RReliefF.sav"
 model = pickle.load(open(model_path, 'rb'))
 
 low = {
@@ -130,7 +129,6 @@ predict = st.button(
 )
 
 if predict:
-    #X = np.array([fail, travel, famsup, age, address, medu, freetime, higher, famrel, fedu, gender]).reshape(1, -1)
     X = np.array([gender, age, address, fail, travel, famsup, fedu, medu, freetime, higher, famrel]).reshape(1, -1)
     proba = model.predict_proba(X)
     title = '<p style="font-size: 26px;">Prediction results</p>'
