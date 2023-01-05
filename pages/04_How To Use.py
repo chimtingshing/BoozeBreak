@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="BoozeBreak", layout='wide')
 st.title("How To Use")
-st.markdown("#### Understanding Technical terms")
+st.markdown("#### Understanding Technical Terms")
 st.markdown("Before looking into how to use BoozeBreak, please try to understand the technical terms below which is"
             " used throughout the application to ensure full understanding of the functionality of BoozeBreak")
 st.markdown("**Class probabilities**")
