@@ -5,6 +5,7 @@ import numpy as np
 st.set_page_config(page_title="BoozeBreak", layout='wide')
 st.title("Single Prediction")
 
+#model_path = "C:/Users/user/PycharmProjects/DS Project/RF_RReliefF.sav"
 model_path = "RF_RReliefF.sav"
 model = pickle.load(open(model_path, 'rb'))
 
