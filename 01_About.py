@@ -7,8 +7,10 @@ st.markdown("The BoozeBreak application can be used to predict whether an undera
             " alcohol addiction based on a set of questions. The name BoozeBreak was inspired from the slang of alcohol"
             " which is \"**booze**\" and to \"**break**\" the cycle of alcohol addiction among underage people",
             unsafe_allow_html=True)
-st.markdown("There are 2 main usages of BoozeBreak which are:<br><ul><li>Single Prediction</li><li>Multiple "
-            "Prediction</li></ul>", unsafe_allow_html=True)
+st.markdown("There are 3 main usages of BoozeBreak which are:<br>"
+            "<ul><li>Single Prediction</li>"
+            "<li>Multiple Prediction</li>"
+            "<li>Exploratory Data Analysis (EDA)</li></ul>", unsafe_allow_html=True)
 st.markdown("For further information on how to use this application, please head to the \"**How To Use**\" page")
 st.markdown("#### Alcohol Addiction")
 st.markdown("Alcohol addiction is a serious problem that does not discriminate as it affects people of all ages and"

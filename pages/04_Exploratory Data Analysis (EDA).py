@@ -5,7 +5,7 @@ import pandas_profiling
 from streamlit_pandas_profiling import st_profile_report
 
 st.set_page_config(page_title="BoozeBreak", layout='wide')
-st.title("Exploratory Data Analysis")
+st.title("Exploratory Data Analysis (EDA)")
 
 uploaded_file = st.file_uploader("Upload a csv file", type=['csv'])
 

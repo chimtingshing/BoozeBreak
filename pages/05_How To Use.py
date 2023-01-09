@@ -44,14 +44,15 @@ st.markdown("<ol>"
             "<li>Press <b>Predict</b> button</li>"
             "<li>Preview output csv file</li>"
             "<li>Download output csv file</li>"
-            "<li>Observe result distribution graph below (only for classification and both)</li>"
+            "<li>Observe result distribution graph below (applies when <b>type prediction</b> is "
+            "<b>classification</b> or <b>both</b>)</li>"
             "</ol>",
             unsafe_allow_html=True)
 st.markdown("Prerequisites of using multiple prediction:")
 st.markdown("<ol>"
             "<li>Please ensure the .csv file uploaded contains the following column names <br>"
-            "[<b>gender</b>, <b>age</b>, <b>address</b>, <b>failures</b>, <b>traveltime</b>, "
-            "<b>famsup</b>, <b>Fedu</b>, <b>Medu</b>, <b>freetime</b>, <b>higher</b>, <b>famrel</b>]<br>"
+            "<b>[gender</b>, <b>age</b>, <b>address</b>, <b>failures</b>, <b>traveltime</b>, "
+            "<b>famsup</b>, <b>Fedu</b>, <b>Medu</b>, <b>freetime</b>, <b>higher</b>, <b>famrel]</b><br>"
             "The ordering does not matter, but the column names <b>must</b> follow the naming convention given,"
             " to prevent any errors</li>"
             "<li>Please ensure the columns follow the correct associated values by following the format "
@@ -60,5 +61,15 @@ st.markdown("<ol>"
             "The columns <b>must</b> follow the correct associated values and format to ensure correct prediction "
             " and to prevent any errors"
             "</li>"
+            "<li>Please make sure there are <b>no empty or null</b> values in the attached csv file</li>"
+            "</ol>",
+            unsafe_allow_html=True)
+st.markdown("#### Exploratory Data Analysis (EDA)")
+st.markdown("To use the EDA function. Kindly follow the steps below:")
+st.markdown("<ol>"
+            "<li>Go to the \"<b>Exploratory Data Analysis (EDA)</b>\" page</li>"
+            "<li>Upload a .csv file</li>"
+            "<li>Press <b>Analyze</b> button</li>"
+            "<li>Observe the generated report</li>"
             "</ol>",
             unsafe_allow_html=True)
