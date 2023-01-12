@@ -19,10 +19,20 @@ st.markdown("- For example, if you set the threshold to 60%, the machine learnin
 st.markdown("**Type of Predictions**")
 st.markdown("This will only be needed for multiple prediction, as type of prediction needs to be chosen")
 st.markdown("- **Classification**: Will flag results as addicted or not addicted based on calculated probability and"
-            " threshold set by user, without showing class probabilities")
+            " threshold set by user, without showing class probabilities. Results are flagged as addicted = 1, not"
+            " addicted = 0")
 st.markdown("- **Class probability**: Will not flag result, instead, will only show class probabilities")
 st.markdown("- **Both classification and class probability**: Will flag result based on threshold set by user while"
             " also showing class probabilities")
+st.markdown("**Filters**")
+st.markdown("This will only be needed for Exploratory Data Analysis (EDA), as filters needs to be chosen")
+st.markdown("- **None**: No filter will be applied on the data. The whole data will be used for EDA")
+st.markdown("- **Alcohol Addiction**: Only alcohol addicts data will be used for EDA")
+st.markdown("- **Both classification and class probability**: Only non alcohol addicts data will be used for EDA")
+
+
+st.markdown("")
+
 st.markdown("#### Single Prediction")
 st.markdown("To use the single prediction function. Kindly follow the steps below:")
 st.markdown("<ol>"
@@ -34,6 +44,7 @@ st.markdown("<ol>"
             "</ol>",
             unsafe_allow_html=True)
 st.markdown("")
+
 st.markdown("#### Multiple Prediction")
 st.markdown("To use the multiple prediction function. Kindly follow the steps below:")
 st.markdown("<ol>"
@@ -64,12 +75,23 @@ st.markdown("<ol>"
             "<li>Please make sure there are <b>no empty or null</b> values in the attached csv file</li>"
             "</ol>",
             unsafe_allow_html=True)
+st.markdown("")
+
 st.markdown("#### Exploratory Data Analysis (EDA)")
 st.markdown("To use the EDA function. Kindly follow the steps below:")
 st.markdown("<ol>"
             "<li>Go to the \"<b>Exploratory Data Analysis (EDA)</b>\" page</li>"
             "<li>Upload a .csv file</li>"
+            "<li>Select filter (None, Alcohol Addict or Non-alcohol Addict)</li>"
             "<li>Press <b>Analyze</b> button</li>"
             "<li>Observe the generated report</li>"
+            "</ol>",
+            unsafe_allow_html=True)
+st.markdown("Prerequisites of using Exploratory Data Analysis (EDA):")
+st.markdown("<ol>"
+            "<li>If Alcohol Addict and Non-alcohol Addict are chosen as filters, please ensure that a column"
+            " named \"<b>addiction</b>\" is present in the dataset, if not an error will occur</li>"
+            "<li>The column \"<b>addiction</b>\" is only allowed to have binary values 0 and 1, with 0 meaning"
+            " non-alcohol addict and 1 meaning alcohol addict</li>"
             "</ol>",
             unsafe_allow_html=True)

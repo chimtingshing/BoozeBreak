@@ -8,7 +8,7 @@ from sklearn.preprocessing import OrdinalEncoder
 
 
 def plot_distribution(df):
-    value_counts = df['prediction'].value_counts().rename_axis("Prediction").reset_index(name="Counts")
+    value_counts = df['addiction'].value_counts().rename_axis("Addiction").reset_index(name="Counts")
     fig = go.Figure(go.Bar(
         x=['Not addicted (0)', 'Addicted (1)'],
         y=value_counts['Counts'],
@@ -16,7 +16,7 @@ def plot_distribution(df):
     ))
     fig.update_layout(template='plotly_white', title=dict(text='Result distribution'))
     fig.update_traces(hovertemplate = '<b>Prediction: </b>%{x}<br><b>Count: </b>%{y}<extra></extra>')
-    fig.update_xaxes(title='Prediction')
+    fig.update_xaxes(title='Addiction')
     fig.update_yaxes(title='Count')
     return fig
 
@@ -45,7 +45,7 @@ def calculate_classification(df):
     proba = proba[:, 1]
     proba[proba <= (threshold / 100)] = 0
     proba[proba > (threshold / 100)] = 1
-    df['prediction'] = proba
+    df['addiction'] = proba
     csv = convert_df(df)
     return df, csv
 
@@ -67,7 +67,7 @@ def calculate_classification_threshold(df):
     proba_addict = proba[:, 1]
     proba_addict[proba_addict <= (threshold / 100)] = 0
     proba_addict[proba_addict > (threshold / 100)] = 1
-    df['prediction'] = proba_addict
+    df['addiction'] = proba_addict
     csv = convert_df(df)
     return df, csv
 
