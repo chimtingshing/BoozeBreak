@@ -91,7 +91,7 @@ type = st.selectbox(
     options=['Classification', 'Class probability', 'Both classification & class probability']
 )
 
-if type != 'Threshold':
+if type != 'Class probability':
     threshold = st.number_input(
         'Set % threshold from 0 to 100 to predict as positive (probability must be greater than threshold to be positive)',
         min_value=0,
