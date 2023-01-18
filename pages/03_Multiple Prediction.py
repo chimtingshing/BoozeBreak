@@ -31,6 +31,8 @@ def encode_df(df):
     df_encoded = column_transformer.fit_transform(df)
     df_encoded.columns = [col.replace('categorical__', '') for col in df_encoded.columns]
     df_encoded.columns = [col.replace('remainder__', '') for col in df_encoded.columns]
+    df_encoded = df_encoded[['gender', 'age', 'address', 'failures', 'traveltime', 'famsup', 'Fedu', 'Medu',
+                             'freetime', 'higher', 'famrel']]
     return df_encoded
 
 
@@ -40,7 +42,9 @@ def convert_df(df):
 
 
 def calculate_classification(df):
-    df_predict = set_failure(df)
+    df_copy = df.copy(deep=True)
+    df_copy = encode_df(df_copy)
+    df_predict = set_failure(df_copy)
     proba = model.predict_proba(df_predict)
     proba = proba[:, 1]
     proba[proba <= (threshold / 100)] = 0
@@ -51,7 +55,9 @@ def calculate_classification(df):
 
 
 def calculate_threshold(df):
-    df_predict = set_failure(df)
+    df_copy = df.copy(deep=True)
+    df_copy = encode_df(df_copy)
+    df_predict = set_failure(df_copy)
     proba = model.predict_proba(df_predict)
     df['addicted_proba'] = proba[:, 1].round(4)
     df['not_addicted_proba'] = proba[:, 0].round(4)
@@ -60,7 +66,9 @@ def calculate_threshold(df):
 
 
 def calculate_classification_threshold(df):
-    df_predict = set_failure(df)
+    df_copy = df.copy(deep=True)
+    df_copy = encode_df(df_copy)
+    df_predict = set_failure(df_copy)
     proba = model.predict_proba(df_predict)
     df['addicted_proba'] = proba[:, 1].round(4)
     df['not_addicted_proba'] = proba[:, 0].round(4)
@@ -105,9 +113,9 @@ predict = st.button(
 
 if predict & (uploaded_file is not None):
     df = pd.read_csv(uploaded_file)
-    df = encode_df(df)
-    df = df[['gender', 'age', 'address', 'failures', 'traveltime', 'famsup', 'Fedu', 'Medu',
-            'freetime', 'higher', 'famrel']]
+    #df = encode_df(df)
+    #df = df[['gender', 'age', 'address', 'failures', 'traveltime', 'famsup', 'Fedu', 'Medu',
+    #        'freetime', 'higher', 'famrel']]
     if type == 'Classification':
         df, csv = calculate_classification(df)
         st.write(df)
