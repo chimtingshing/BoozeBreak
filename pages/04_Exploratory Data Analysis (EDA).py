@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from streamlit_pandas_profiling import st_profile_report
+from pandas_profiling import ProfileReport
 
 st.set_page_config(page_title="BoozeBreak", layout='wide')
 st.title("Exploratory Data Analysis (EDA)")
@@ -26,7 +27,8 @@ if analyze & (uploaded_file is not None):
         df = df[df['addiction'] == 0]
     else:
         df = pd.read_csv(uploaded_file)
-    report = df.profile_report()
+    #report = df.profile_report()
+    report = ProfileReport(df)
     st_profile_report(report)
 elif analyze & (uploaded_file is None):
     st.error('Please upload a file first')
